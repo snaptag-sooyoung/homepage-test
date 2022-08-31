@@ -11,7 +11,6 @@ function App() {
   console.log(result, "result");
 
   const storage1 = storage;
-  const gsReference = ref(storage1, "gs://labcode-program.appspot.com/mac(arm)/Labcode-2.1.0-arm64.dmg");
 
   // const downloadFile = () => {
   //   getDownloadURL(ref(storage1, "/mac(arm)/Labcode-2.1.0-arm64.dmg"))
@@ -45,7 +44,7 @@ function App() {
         : os === undefined
         ? "/mac(arm)/Labcode-2.1.0-arm64.dm"
         : "/mac(intel)/Labcode-2.1.0.dmg";
-    getDownloadURL(ref(storage1, "/mac(arm)/Labcode-2.1.0-arm64.dmg")).then((url) => {
+    getDownloadURL(ref(storage1, fileType)).then((url) => {
       const link = document.createElement("a");
       document.body.appendChild(link);
       link.href = url;
