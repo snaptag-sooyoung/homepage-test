@@ -38,7 +38,13 @@ function App() {
   //     });
   // };
 
-  const downloadFile = useCallback((os: string) => {
+  const downloadFile = useCallback((os: string | undefined) => {
+    let fileType =
+      os === "Windows"
+        ? "/windows/Labcode Setup 2.1.0.exe"
+        : os === undefined
+        ? "/mac(arm)/Labcode-2.1.0-arm64.dm"
+        : "/mac(intel)/Labcode-2.1.0.dmg";
     getDownloadURL(ref(storage1, "/mac(arm)/Labcode-2.1.0-arm64.dmg")).then((url) => {
       const link = document.createElement("a");
       document.body.appendChild(link);
@@ -50,7 +56,7 @@ function App() {
 
   return (
     <div style={{ height: "100vh", display: "flex", justifyContent: "center", alignItems: "center" }}>
-      <button onClick={() => downloadFile("/mac(arm)/Labcode-2.1.0-arm64.dmg")}>{result.os.name} 다운로드</button>
+      <button onClick={() => downloadFile(result.os.name)}>{result.os.name} 다운로드</button>
     </div>
   );
 }
