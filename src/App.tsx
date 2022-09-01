@@ -41,7 +41,7 @@ function App() {
     let fileType =
       os === "Windows"
         ? "/windows/Labcode Setup 2.1.0.exe"
-        : os === undefined
+        : result.cpu.architecture === undefined
         ? "/mac(arm)/Labcode-2.1.0-arm64.dm"
         : "/mac(intel)/Labcode-2.1.0.dmg";
     getDownloadURL(ref(storage1, fileType)).then((url) => {
