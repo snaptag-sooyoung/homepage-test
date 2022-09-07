@@ -40,7 +40,7 @@ function App() {
   const downloadFile = useCallback((os: string | undefined) => {
     let fileType =
       os === "Windows"
-        ? "/windows/Labcode Setup 2.1.0.exe"
+        ? "/windows/Labcode Setup 2.1.1.exe"
         : result.cpu.architecture === undefined
         ? "/mac(arm)/Labcode-2.1.1-arm64.dmg"
         : "/mac(intel)/Labcode-2.1.0.dmg";
